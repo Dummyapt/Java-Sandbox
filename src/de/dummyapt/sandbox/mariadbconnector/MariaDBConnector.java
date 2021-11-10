@@ -10,7 +10,7 @@ class MariaDBConnector {
     private static final String URL = "jdbc:mariadb://[::1]:3306/ebkherne?user=ebkherne";
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    MariaDBConnector() {
+    public static void main(String[] args) {
         try (Connection connection = DriverManager.getConnection(URL);
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM abteilungen;");
@@ -20,9 +20,5 @@ class MariaDBConnector {
         } catch (Exception e) {
             LOGGER.severe(e.getMessage());
         }
-    }
-
-    public static void main(String[] args) {
-        new MariaDBConnector();
     }
 }
