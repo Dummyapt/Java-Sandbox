@@ -1,10 +1,11 @@
 package de.dummyapt.sandbox.garage;
 
-abstract class Vehicle {
-    String color;
+class Vehicle {
+    Colors color;
     int wheels;
-    int maxSpeed;
-    double fuelCapacity;
 
-    abstract void horn();
+    public Vehicle(Colors color, int wheels) {
+        this.color = color;
+        this.wheels = wheels;
+    }
 }
