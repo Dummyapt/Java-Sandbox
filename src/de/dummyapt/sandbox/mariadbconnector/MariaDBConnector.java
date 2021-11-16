@@ -13,10 +13,16 @@ class MariaDBConnector {
     public static void main(String[] args) {
         try (Connection connection = DriverManager.getConnection(URL);
              Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM abteilungen;");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM mitarbeiter;");
+
+            var sb = new StringBuilder();
             while (resultSet.next()) {
-                System.out.println(resultSet.getString(1) + " " + resultSet.getString(2));
+                sb.append(resultSet.getString(1)).append(" ")
+                        .append(resultSet.getString(2)).append(" ")
+                        .append(resultSet.getString(3)).append(" ")
+                        .append(resultSet.getString(4)).append("\n");
             }
+            System.out.println(sb);
         } catch (Exception e) {
             LOGGER.severe(e.getMessage());
         }
