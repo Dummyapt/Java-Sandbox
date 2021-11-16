@@ -1,9 +1,6 @@
 package de.dummyapt.sandbox.mariadbconnector;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.logging.Logger;
 
 class MariaDBConnector {
@@ -11,9 +8,9 @@ class MariaDBConnector {
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public static void main(String[] args) {
-        try (Connection connection = DriverManager.getConnection(URL);
-             Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM mitarbeiter;");
+        try (var connection = DriverManager.getConnection(URL);
+             var statement = connection.createStatement()) {
+            var resultSet = statement.executeQuery("SELECT * FROM ebkherne.mitarbeiter;");
 
             var sb = new StringBuilder();
             while (resultSet.next()) {
