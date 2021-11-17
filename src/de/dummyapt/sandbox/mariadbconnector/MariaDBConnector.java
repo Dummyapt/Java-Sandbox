@@ -35,6 +35,6 @@ class MariaDBConnector {
                 -------------------------------
                         Table structure
                 -------------------------------
-                %s""", table);
+                %s%n""", table);
     }
 }
