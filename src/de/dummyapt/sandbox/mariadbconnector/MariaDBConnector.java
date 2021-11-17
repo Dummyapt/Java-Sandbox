@@ -11,17 +11,30 @@ class MariaDBConnector {
         try (var connection = DriverManager.getConnection(URL);
              var statement = connection.createStatement()) {
             var resultSet = statement.executeQuery("SELECT * FROM ebkherne.mitarbeiter;");
+            var columnCount = resultSet.getMetaData().getColumnCount();
+            var table = new StringBuilder();
 
-            var sb = new StringBuilder();
             while (resultSet.next()) {
-                sb.append(resultSet.getString(1)).append(" ")
-                        .append(resultSet.getString(2)).append(" ")
-                        .append(resultSet.getString(3)).append(" ")
-                        .append(resultSet.getString(4)).append("\n");
+                for (var i = 1; i <= columnCount; i++) {
+                    table.append(resultSet.getString(i));
+                    if (i == columnCount)
+                        table.append("\n");
+                    else
+                        table.append(" ");
+                }
             }
-            System.out.println(sb);
+
+            printTable(table);
         } catch (Exception e) {
             LOGGER.severe(e.getMessage());
         }
+    }
+
+    private static void printTable(StringBuilder table) {
+        System.out.printf("""
+                -------------------------------
+                        Table structure
+                -------------------------------
+                %s""", table);
     }
 }
