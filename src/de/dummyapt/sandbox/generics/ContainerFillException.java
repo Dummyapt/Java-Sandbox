@@ -1,16 +1,14 @@
 package de.dummyapt.sandbox.generics;
 
-import java.io.Serializable;
-
-class ContainerFillException extends Exception implements Serializable {
+final class ContainerFillException extends Exception {
     private final Content content;
 
-    ContainerFillException(Content content) {
-        super("Container wird überfüllt!");
+    public ContainerFillException(Content content) {
+        super(String.format("Container wird überfüllt! Verursacher: %s", content));
         this.content = content;
     }
 
-    Content getContent() {
+    public Content getContent() {
         return content;
     }
 }

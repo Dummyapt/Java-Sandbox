@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox.codewars;
 
-public class RemoveChars {
+final class RemoveChars {
     public static void main(String[] args) {
         System.out.println(remove("Test"));
         System.out.println(remove("I love cats"));
@@ -16,7 +16,7 @@ public class RemoveChars {
      * @param s Text
      * @return String with the first and last letters removed
      */
-    public static String remove(String s) {
+    private static String remove(String s) {
         return String.valueOf(
                 new StringBuilder(s).replace(0, 1, "").replace(s.length() - 2, s.length() - 1, "")
         ).trim();

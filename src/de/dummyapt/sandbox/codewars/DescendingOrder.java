@@ -3,7 +3,7 @@ package de.dummyapt.sandbox.codewars;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
-public class DescendingOrder {
+final class DescendingOrder {
     public static void main(String[] args) {
         System.out.println(sortDesc(492345));
     }
@@ -27,7 +27,7 @@ public class DescendingOrder {
      * @param num Number to be re-ordered
      * @return Descended number
      */
-    public static int sortDesc(final int num) {
+    private static int sortDesc(final int num) {
         return Integer.parseInt(
                 String.valueOf(num)
                         .chars()

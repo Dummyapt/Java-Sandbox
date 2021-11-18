@@ -1,5 +1,5 @@
 package de.dummyapt.sandbox.garage;
 
-interface Horn {
+sealed interface Features permits Bus, Car {
     void horn();
 }

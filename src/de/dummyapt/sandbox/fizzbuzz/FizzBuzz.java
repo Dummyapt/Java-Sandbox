@@ -2,8 +2,8 @@ package de.dummyapt.sandbox.fizzbuzz;
 
 import java.util.Scanner;
 
-class FizzBuzz {
-    FizzBuzz() {
+final class FizzBuzz {
+    public FizzBuzz() {
         System.out.print("Please give me a number: ");
         var numberInput = new Scanner(System.in).nextInt();
 

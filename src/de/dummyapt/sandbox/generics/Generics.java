@@ -1,11 +1,11 @@
 package de.dummyapt.sandbox.generics;
 
-class Generics {
+final class Generics {
     private final Container<Content> mixContainer;
     private final Container<Stone> stoneContainer;
     private final Container<Wood> woodContainer;
 
-    Generics() {
+    public Generics() {
         mixContainer = new Container<>(1_500);
         woodContainer = new Container<>(1_000);
         stoneContainer = new Container<>(2_500);
@@ -17,7 +17,7 @@ class Generics {
         generics.listContent();
     }
 
-    void addContent() {
+    private void addContent() {
         try {
             mixContainer.add(new Wood(90, "Rotbuche"));
             mixContainer.add(new Wood(15, "Fichte"));
@@ -25,7 +25,6 @@ class Generics {
             mixContainer.add(new Stone(750));
         } catch (ContainerFillException e) {
             e.printStackTrace();
-            System.out.println(e.getContent());
         }
 
         try {
@@ -34,7 +33,6 @@ class Generics {
             stoneContainer.add(new Stone(1_500));
         } catch (ContainerFillException e) {
             e.printStackTrace();
-            System.out.println(e.getContent());
         }
 
         try {
@@ -43,45 +41,30 @@ class Generics {
             woodContainer.add(new Wood(25, "Kiefer"));
         } catch (ContainerFillException e) {
             e.printStackTrace();
-            System.out.println(e.getContent());
         }
     }
 
-    void listContent() {
-        var maxWeightString = "Max capacity: %skg";
-        var currentWeight = "Current weight: %skg";
+    private void listContent() {
+        var maxWeightString = "Max capacity: %skg%n";
+        var currentWeight = "Current weight: %skg%n";
+        var list = new StringBuilder();
 
-        println("MIXER");
-        println(formatText(maxWeightString, mixContainer.maxWeight));
-        println(formatText(currentWeight, mixContainer.currentWeight));
-        println("");
+        list.append("MIXER\n")
+                .append(String.format(maxWeightString, mixContainer.getMaxWeight()))
+                .append(String.format(currentWeight, mixContainer.getCurrentWeight()))
+                .append("\nSTONE CONTAINER\n")
+                .append(String.format(maxWeightString, stoneContainer.getMaxWeight()))
+                .append(String.format(currentWeight, stoneContainer.getCurrentWeight()))
+                .append("\nWOOD CONTAINER\n")
+                .append(String.format(maxWeightString, woodContainer.getMaxWeight()))
+                .append(String.format(currentWeight, woodContainer.getCurrentWeight()))
+                .append("\nWOOD CONTAINER CONTENT\n");
 
-        println("STONE CONTAINER");
-        println(formatText(maxWeightString, stoneContainer.maxWeight));
-        println(formatText(currentWeight, stoneContainer.currentWeight));
-        println("");
-
-        println("WOOD CONTAINER");
-        println(formatText(maxWeightString, woodContainer.maxWeight));
-        println(formatText(currentWeight, woodContainer.currentWeight));
-        println("Content:");
-
-        for (int i = 0; i < woodContainer.contents.size(); i++) {
-            var types = "";
-            types += woodContainer.contents.get(i).type() + " ";
-            var sb = new StringBuilder();
-            for (var weight : types.split(" ")) {
-                sb.append("-").append(weight).append(" (").append(woodContainer.contents.get(i).weight()).append("kg)");
-            }
-            println(sb.toString());
+        for (var i = 0; i < woodContainer.getContents().size(); i++) {
+            var type = woodContainer.getContents().get(i).type();
+            var weight = woodContainer.getContents().get(i).weight();
+            list.append(String.format("-%s (%skg)%n", type, weight));
         }
-    }
-
-    private void println(String s) {
-        System.out.println(s);
-    }
-
-    private String formatText(String s, int i) {
-        return String.format(s, i);
+        System.out.println(list);
     }
 }

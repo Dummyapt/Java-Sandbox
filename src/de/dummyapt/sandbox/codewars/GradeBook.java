@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox.codewars;
 
-public class GradeBook {
+final class GradeBook {
     public static void main(String[] args) {
         System.out.println(getGrade(95, 90, 93));
         System.out.println(getGrade(100, 85, 96));
@@ -26,7 +26,7 @@ public class GradeBook {
      * @param s3 Score 3
      * @grade = Average of all three scores
      */
-    public static char getGrade(int s1, int s2, int s3) {
+    private static char getGrade(int s1, int s2, int s3) {
         int score = (s1 + s2 + s3) / 3;
         char grade = ' ';
 

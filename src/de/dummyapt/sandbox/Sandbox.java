@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox;
 
-public class Sandbox {
+final class Sandbox {
     public static void main(String[] args) {
     }
 }

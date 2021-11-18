@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox.codewars;
 
-public class PrinterErrors {
+final class PrinterErrors {
     public static void main(String[] args) {
         System.out.println(printerError("aaaaabcdefghijklmnnn"));
     }
@@ -31,7 +31,7 @@ public class PrinterErrors {
      * @param s Colors used
      * @return Error count out of string length
      */
-    public static String printerError(String s) {
+    private static String printerError(String s) {
         return s.replaceAll("[a-m]", "").length() + "/" + s.length();
     }
 }

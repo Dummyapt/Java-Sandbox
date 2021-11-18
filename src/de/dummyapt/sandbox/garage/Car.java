@@ -1,7 +1,6 @@
 package de.dummyapt.sandbox.garage;
 
-class Car extends Vehicle implements Horn {
-
+final class Car extends Vehicle implements Features {
     public Car(Colors color, int wheels) {
         super(color, wheels);
     }

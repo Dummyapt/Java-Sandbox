@@ -1,11 +1,11 @@
 package de.dummyapt.sandbox.codewars;
 
-public class RockPaperScissors {
+final class RockPaperScissors {
     public static void main(String[] args) {
-        System.out.println(rockPaperScissors("rock", "rock"));
-        System.out.println(rockPaperScissors("rock", "scissors"));
-        System.out.println(rockPaperScissors("rock", "paper"));
-        System.out.println(rockPaperScissors("scissors", "paper"));
+        System.out.println(rockPaperScissors(rps.ROCK, rps.ROCK));
+        System.out.println(rockPaperScissors(rps.ROCK, rps.SCISSORS));
+        System.out.println(rockPaperScissors(rps.ROCK, rps.PAPER));
+        System.out.println(rockPaperScissors(rps.SCISSORS, rps.PAPER));
     }
 
     /**
@@ -17,17 +17,22 @@ public class RockPaperScissors {
      * @param p2 Player 2
      * @return Winner or draw
      */
-    public static String rockPaperScissors(String p1, String p2) {
-        if (p1.equals(p2))
+    private static String rockPaperScissors(rps p1, rps p2) {
+        if (p1 == p2)
             return "Draw!";
-        if (p1.equals("paper") && p2.equals("rock")
-                || p1.equals("rock") && p2.equals("scissors")
-                || p1.equals("scissors") && p2.equals("paper"))
+        else if (p1 == rps.PAPER && p2 == rps.ROCK
+                || p1 == rps.ROCK && p2 == rps.SCISSORS
+                || p1 == rps.SCISSORS && p2 == rps.PAPER)
             return "Player 1 won!";
-        if (p2.equals("paper") && p1.equals("rock")
-                || p2.equals("rock") && p1.equals("scissors")
-                || p2.equals("scissors") && p1.equals("paper"))
+        else if (p2 == rps.PAPER && p1 == rps.ROCK
+                || p2 == rps.ROCK && p1 == rps.SCISSORS
+                || p2 == rps.SCISSORS && p1 == rps.PAPER)
             return "Player 2 won!";
-        return "";
+        else
+            return "";
+    }
+
+    private enum rps {
+        ROCK, PAPER, SCISSORS
     }
 }

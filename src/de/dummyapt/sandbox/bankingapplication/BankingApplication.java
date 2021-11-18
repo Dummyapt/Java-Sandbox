@@ -2,7 +2,7 @@ package de.dummyapt.sandbox.bankingapplication;
 
 import java.util.Scanner;
 
-class BankingApplication {
+final class BankingApplication {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final BankAccount BANK_ACCOUNT = new BankAccount("1208", "Dummy");
 

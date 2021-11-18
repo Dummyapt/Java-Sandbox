@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox.codewars;
 
-public class Alarm {
+final class Alarm {
     public static void main(String[] args) {
         System.out.println(setAlarm(true, true));
         System.out.println(setAlarm(false, true));
@@ -22,7 +22,7 @@ public class Alarm {
      * @param vacation Whether you are on vacation
      * @return -
      */
-    public static boolean setAlarm(boolean employed, boolean vacation) {
+    private static boolean setAlarm(boolean employed, boolean vacation) {
         return employed && !vacation;
     }
 }

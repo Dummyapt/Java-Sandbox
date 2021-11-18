@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox.codewars;
 
-public class SumArray {
+final class SumArray {
     public static void main(String[] args) {
         System.out.println(sum(new double[]{}));
         System.out.println(sum(new double[]{-2.398}));
@@ -34,12 +34,10 @@ public class SumArray {
      * @param numbers Array of numbers
      * @return Sum of all elements in the array
      */
-    public static double sum(double[] numbers) {
+    private static double sum(double[] numbers) {
         double sum = 0;
-        for (double i :
-                numbers) {
+        for (double i : numbers)
             sum += i;
-        }
         return sum;
     }
 }

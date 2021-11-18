@@ -1,11 +1,9 @@
 package de.dummyapt.sandbox.mariadbconnector;
 
 import java.sql.DriverManager;
-import java.util.logging.Logger;
 
-class MariaDBConnector {
+final class MariaDBConnector {
     private static final String URL = "jdbc:mariadb://[::1]:3306/ebkherne?user=ebkherne";
-    private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public static void main(String[] args) {
         try (var connection = DriverManager.getConnection(URL);
@@ -23,10 +21,9 @@ class MariaDBConnector {
                         table.append(" ");
                 }
             }
-
             printTable(table);
         } catch (Exception e) {
-            LOGGER.severe(e.getMessage());
+            e.printStackTrace();
         }
     }
 

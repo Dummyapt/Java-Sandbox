@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox.codewars;
 
-public class BasicOperations {
+final class BasicOperations {
     public static void main(String[] args) {
         System.out.println(basicMath("+", 10, 5));
         System.out.println(basicMath("-", 10, 5));
@@ -19,7 +19,7 @@ public class BasicOperations {
      * @param v2 Second value
      * @return Result
      */
-    public static Integer basicMath(String op, int v1, int v2) {
+    private static Integer basicMath(String op, int v1, int v2) {
         return switch (op) {
             case "+" -> v1 + v2;
             case "-" -> v1 - v2;

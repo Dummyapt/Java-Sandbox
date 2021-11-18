@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class FunWithArrays {
+final class FunWithArrays {
     private static int[] NUMBERS;
 
-    private FunWithArrays(int pLength, int pMaxNum) {
+    public FunWithArrays(int pLength, int pMaxNum) {
         NUMBERS = new int[pLength];
         for (var i = 0; i < NUMBERS.length; i++)
             NUMBERS[i] = new Random().nextInt() * pMaxNum;

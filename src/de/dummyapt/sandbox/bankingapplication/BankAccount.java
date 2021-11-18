@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox.bankingapplication;
 
-class BankAccount {
+final class BankAccount {
     private final String id;
     private final String name;
     private int balance;
@@ -23,7 +23,7 @@ class BankAccount {
         return name;
     }
 
-    void deposit(int amount) {
+    public void deposit(int amount) {
         if (amount <= 0)
             log("Error! Deposit can't be below or equal to 0.");
         else {
@@ -34,7 +34,7 @@ class BankAccount {
         }
     }
 
-    void withdraw(int amount) {
+    public void withdraw(int amount) {
         if (amount <= 0)
             log("Error! Withdraw can't be below or equal to 0.");
         else {
@@ -45,7 +45,7 @@ class BankAccount {
         }
     }
 
-    String getPreviousTransaction() {
+    public String getPreviousTransaction() {
         if (previousTransaction > 0)
             return String.format("Deposited: %s", previousTransaction);
         else if (previousTransaction < 0)

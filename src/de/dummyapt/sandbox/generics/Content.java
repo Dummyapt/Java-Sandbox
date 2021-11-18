@@ -1,5 +1,5 @@
 package de.dummyapt.sandbox.generics;
 
-interface Content {
+sealed interface Content permits Stone, Wood {
     int getWeight();
 }

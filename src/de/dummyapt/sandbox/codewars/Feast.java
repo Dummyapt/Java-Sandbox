@@ -1,6 +1,6 @@
 package de.dummyapt.sandbox.codewars;
 
-public class Feast {
+final class Feast {
     public static void main(String[] args) {
         System.out.println(feast("chickadee", "chocolate cake"));
         System.out.println(feast("great blue heron", "garlic nann"));
@@ -22,7 +22,7 @@ public class Feast {
      * these will not appear at the beginning or end of the string. They will not
      * contain numerals.
      */
-    public static boolean feast(String beast, String dish) {
+    private static boolean feast(String beast, String dish) {
         return beast.toCharArray()[0] == dish.toCharArray()[0]
                 && beast.toCharArray()[beast.length() - 1] == dish.toCharArray()[dish.length() - 1];
     }
