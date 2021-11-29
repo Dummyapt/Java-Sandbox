@@ -21,24 +21,24 @@ final class SimpleChattyBot {
     }
 
     private static void remindName() {
-        String name = SCANNER.nextLine();
+        var name = SCANNER.nextLine();
         printf("What a great name you have, %s!%n", name);
     }
 
     private static void guessAge() {
         print("Let me guess your age.");
         print("Enter remainders of dividing your age by 3, 5 and 7.");
-        int rem3 = SCANNER.nextInt();
-        int rem5 = SCANNER.nextInt();
-        int rem7 = SCANNER.nextInt();
-        int age = (rem3 * 70 + rem5 * 21 + rem7 * 15) % 105;
+        var rem3 = SCANNER.nextInt();
+        var rem5 = SCANNER.nextInt();
+        var rem7 = SCANNER.nextInt();
+        var age = (rem3 * 70 + rem5 * 21 + rem7 * 15) % 105;
         printf("Your age is %s; that's a good time to start programming!%n", age);
     }
 
     private static void count() {
         print("Now I will prove to you that I can count to any number you want.");
-        int num = SCANNER.nextInt();
-        for (int i = 0; i <= num; i++) {
+        var num = SCANNER.nextInt();
+        for (var i = 0; i <= num; i++) {
             print(i);
         }
     }
@@ -50,11 +50,10 @@ final class SimpleChattyBot {
         print("2. To decompose a program into several small subroutines.");
         print("3. To determine the execution time of a program.");
         print("4. To interrupt the execution of a program.");
-        if (SCANNER.nextInt() == 2) {
+        if (SCANNER.nextInt() == 2)
             print("Well done!");
-        } else {
+        else
             print("Please, try again.");
-        }
     }
 
     private static void end() {
