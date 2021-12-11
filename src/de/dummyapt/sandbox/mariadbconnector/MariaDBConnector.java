@@ -3,7 +3,7 @@ package de.dummyapt.sandbox.mariadbconnector;
 import java.sql.DriverManager;
 
 final class MariaDBConnector {
-    private static final String URL = "jdbc:mariadb://[::1]:3306/ebkherne?user=ebkherne";
+    private static final String URL = "jdbc:mariadb://[::1]:3306/ebkherne?user=root;
 
     public static void main(String[] args) {
         try (var connection = DriverManager.getConnection(URL);
